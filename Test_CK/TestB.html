@@ -34,12 +34,12 @@
           '#' + colorList[i] + '" style="background-color:' +
           '#' + colorList[i] + ';"></li>');
       }
-      // khi click vao bang mau, no se tu mat
+     
       $('body').click(function(){
           picker.fadeOut();
       });
 
-      // click de xuat hien bang mau
+     
       $('.call-picker').click(function(event){
           event.stopPropagation();
           picker.fadeIn();
