@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Colorpicker demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">       
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link href="TestB.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="color-wrapper">
+    <p>Choose color (#hex)</p>
+    <input type="text" name="custom_color" placeholder="#ffffff" id="pickcolor" class="call-picker">
+    <div class="color-holder call-picker"></div>
+    <div class="color-picker" id="color-picker" style="display:none" ></div>
+  </div>
+
+ 
+  <script type="text/javascript">
+    var colorList = ['000000', '993300', '333300', '003300', '003366', '000066', '333399', '333333',
+  '660000', 'FF6633', '666633', '336633', '336666', '0066FF', '666699', '666666', 'CC3333', 'FF9933', '99CC33', '669966', '66CCCC', '3366FF', '663366', '999999', 'CC66FF', 'FFCC33', 'FFFF66', '99FF66', '99CCCC', '66CCFF', '993366', 'CCCCCC', 'FF99CC', 'FFCC99', 'FFFF99', 'CCffCC', 'CCFFff', '99CCFF', 'CC99FF', 'FFFFFF'];
+      var picker = $('#color-picker');
+
+      for(var i=0; i< colorList.length; i++)
+      {
+          picker.append('<li class="color-item" data-hex="'+
+          '#' + colorList[i] + '" style="background-color:' +
+          '#' + colorList[i] + ';"></li>');
+      }
+
+      $('body').click(function(){
+          picker.fadeOut();
+      });
+
+      $('.call-picker').click(function(event){
+          event.stopPropagation();
+          picker.fadeIn();
+          picker.children('li').hover(function(){
+              var codeHex = $(this).data('hex');
+              $('.color-holder').css('background-color',codeHex);
+              $('#pickcolor').val(codeHex);
+          });
+      });
+  </script>
+ 
+</body>
+</html>
